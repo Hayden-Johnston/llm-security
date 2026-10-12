@@ -7,7 +7,6 @@ from data_processing.dataset import DataHandler
 from llm_security.pipeline import Pipeline
 
 
-
 def main():
     load_dotenv()
     config_path = Path("config.json")

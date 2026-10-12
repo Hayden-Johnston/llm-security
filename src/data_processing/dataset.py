@@ -3,9 +3,9 @@ from datasets import load_dataset
 
 class DataHandler:
 
-    def __init__(self, config, mode):
+    def __init__(self, config, mode="test"):
         self.config = config["datasets"]
-        self.ds = self.load_datasets(config)
+        self.ds = self.load_datasets()
         self.mode = mode # "train" or "test"
         
     def load_datasets(self):

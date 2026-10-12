@@ -1,9 +1,9 @@
 import json
+import threading
 from pathlib import Path
 
-import threading
-
 from llm_security.worker import Worker
+
 
 class Pipeline:
 

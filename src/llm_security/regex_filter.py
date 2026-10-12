@@ -1,4 +1,3 @@
-import re
 
 # Example
 # txt = "The rain in Spain"
