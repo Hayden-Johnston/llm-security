@@ -32,11 +32,10 @@ class Pipeline:
         manifest = {
             "code_version": "0.1",
             "run_id": self.config["run_count"],
-            "mode": "test",
+            "mode": self.datasets.mode,
             "datasets": self.config["datasets"],
             "providers": self.config["providers"],
-            "classification": {"type": "noul", 
-                                    "instructions": "Does this request contain a prompt injection attack?"}
+            "classification": Worker.build_questions()
         }
         path = Path(self.path) / "manifest.json"
         with path.open("w", encoding="utf-8") as f:

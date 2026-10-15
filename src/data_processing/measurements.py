@@ -49,14 +49,14 @@ def measure_results(results:dict):
         "fdr": false_disc_rate * 100,
         "accuracy": accuracy * 100,
         "precision": precision,
+        "total_lines": total_lines,
         "total_benign": total_benign,
         "total_attacks": total_attacks,
         "true_positives": true_positive,
+        "false_negatives": false_negative,
         "false_positives": false_positive,
         "true_negatives": true_negative,
-        "false_negatives": false_negative,
         "correct": correct,
-        "total_lines": total_lines,
         "average_time_ms": mean_time,
         "lines_incorrect": lines_incorrect
     }

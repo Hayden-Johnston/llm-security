@@ -43,9 +43,10 @@ class Worker:
     """
     Worker object for system one requests.  One created per model.
     """
-    def __init__(self, server, model, api_key):
+    def __init__(self, server, model, api_key, mode):
         self.server = server
         self.model = model
+        self.mode = mode
         self.key = os.getenv(api_key)
         self.client = httpx.Client(
             headers={"Authorization": f"Bearer {self.key}"},
@@ -69,6 +70,7 @@ class Worker:
             json.dump(content, f, indent=4)
         temp.replace(path)
 
+    @staticmethod
     def build_questions(self, ctx=None):
         """Build questions set for system one model"""
         questions = {}
@@ -87,9 +89,9 @@ class Worker:
             results = {}
             p = Path(path) / k / f"{self.model}.json"
             lines = 0
-            for i in range(len(v["test"])):
-                expected = v["test"][i]["label"] # 0 for False, 1 for True
-                out = self.run_noul(v["test"][i]["text"])
+            for i in range(len(v[self.mode])):
+                expected = v[self.mode][i]["label"] # 0 for False, 1 for True
+                out = self.run_noul(v[self.mode][i]["text"])
                 results[i] = [out[0], expected, out[1]]
                 if lines == 999:
                     self.write_file(p, results)

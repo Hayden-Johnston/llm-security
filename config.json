@@ -1,6 +1,5 @@
 {
     "run_count": 1,
-    "parallel": true,
     "mode": "test",
     "providers": {
         "http://172.16.1.200:8082/v1": [
