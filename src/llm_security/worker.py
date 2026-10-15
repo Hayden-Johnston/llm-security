@@ -87,7 +87,7 @@ class Worker:
             results = {}
             p = Path(path) / k / f"{self.model}.json"
             lines = 0
-            for i in range(len(v["train"])):
+            for i in range(len(v["test"])):
                 expected = v["test"][i]["label"] # 0 for False, 1 for True
                 out = self.run_noul(v["test"][i]["text"])
                 results[i] = [out[0], expected, out[1]]

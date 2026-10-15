@@ -15,7 +15,7 @@ def main():
         f.close()
     with config_path.open("w", encoding="utf-8") as f:
         config["run_count"] += 1
-        json.dump(config, f)
+        json.dump(config, f, indent=4)
         f.close()
     dh = DataHandler(config)
     pipeline = Pipeline(config, dh)
